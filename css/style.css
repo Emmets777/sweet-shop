@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;600;700&display=swap");
+
+/* 🎨 Paleta baseada em 60/30/10 — Doceria */
+:root {
+  /* ========= 60% - Base (tons claros / fundo principal) ========= */
+  --bg: hsl(30, 100%, 98%);
+  --surface: hsl(25, 70%, 94%);
+  --border: 1px solid hsl(20, 25%, 85%);
+  --padding: 1rem;
+
+  /* ========= 30% - Complemento ========= */
+  --primary: hsl(345, 55%, 65%);
+  --primary-hover: hsl(345, 60%, 58%);
+  --accent: hsl(20, 45%, 50%);
+  --accent-hover: hsl(20, 50%, 45%);
+
+  /* ========= 10% - Toque vibrante ========= */
+  --highlight: hsl(340, 70%, 55%);
+  --highlight-hover: hsl(340, 75%, 50%);
+
+  /* ========= Tipografia ========= */
+  --important-text: hsl(20, 20%, 15%);
+  --normal-text: hsl(20, 15%, 30%);
+  --muted-text: hsl(20, 10%, 45%);
+
+  --important: 700;
+  --destac: 600;
+  --mid: 400;
+  --low: 300;
+
+  /* ========= Outros ========= */
+  --shadow: 0 4px 10px hsla(20, 20%, 30%, 0.15);
+  --radius: 0.75rem;
+  --transition: all 0.3s ease;
+}
+
+/* ========= Reset ========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", "Inter", sans-serif;
+}
+
+html {
+  font-size: 16px; /* base para rem */
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg);
+  color: var(--normal-text);
+  line-height: 1.5;
+}
+
+/* ========= Header ========= */
+header {
+  width: 100%;
+  background-color: var(--surface);
+  border-bottom: var(--border);
+  box-shadow: var(--shadow);
+  padding: 0.75rem var(--padding);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo p {
+  font-weight: var(--destac);
+  color: var(--important-text);
+  font-size: 0.8rem; /* leitura confortável em telas pequenas */
+}
+
+/* ========= Botão principal ========= */
+#orders {
+  background-color: var(--primary);
+  color: var(--important-text);
+  font-weight: var(--important);
+  border-radius: var(--radius);
+  border: none;
+  padding: 0.5rem 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 0.9rem; /* tamanho ideal para mobile */
+  line-height: 1;
+}
+
+#orders:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.descWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem var(--padding);
+}
+
+.descriptionShop {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deskWelcome {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.bntZone {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bntProduct {
+  width: 10rem;
+  padding: 0.3rem;
+  border-radius: var(--radius);
+  border: var(--border);
+  background-color: var(--accent);
+}
+
+.bntProduct a {
+  text-decoration: none;
+  color: var(--important-text);
+  font-weight: var(--destac);
+}
+
+.imgProduct {
+  width: 100%;
+  height: 15rem;
+  border-radius: var(--radius);
+}
+
+.aboutUs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.35rem;
+  padding: 0.75rem var(--padding);
+}
+
+.aboutUs:first-child {
+  text-align: center;
+}
+
+.aboutWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--padding) var(--padding);
+  flex-direction: column;
+}
+
+.card {
+  background-color: var(--surface);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  padding: 0.36rem 0.32rem;
+  border-radius: var(--radius);
+  border: var(--border);
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+  border-bottom: var(--border);
+}
+
+#ourProducts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--padding);
+}
+
+#ourProducts h3 {
+  font-weight: var(--important);
+  text-align: center;
+}
+
+#ourProducts {
+  font-weight: var(--mid);
+  text-align: center;
+  row-gap: 4px;
+}
+
+/* ======== WRAPPER ========= */
+.cardWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  align-items: center;
+}
+
+/* ======== CARD ========= */
+.cardProduct {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  width: 100%;
+  max-width: 22rem;        /* controla o tamanho */
+  box-shadow: var(--shadow);
+}
+
+/* ======== IMAGENS PADRONIZADAS ========= */
+.productPic {
+  width: 100%;
+  height: 14rem;           /* todas as imagens ficam com a mesma altura */
+  object-fit: cover;       /* corta onde precisar sem distorcer */
+}
+
+/* ======== TEXTOS ========= */
+.productInfo {
+  padding: 1rem;
+}
+
+.productName {
+  font-weight: var(--important);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ======== SABORES ========= */
+.flavor p {
+  font-weight: var(--destac);
+}
+
+.flavor ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.flavor ul li {
+  font-weight: var(--destac);
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.createOrder {
+  background-color: var(--accent);
+  cursor: pointer;
+  border: var(--border);
+  padding: 0.36rem;
+  box-shadow: none;
+}
+
+.createOrder a {
+  text-decoration: none;
+  color: var(--important-text);
+}
+
+#makeOrder {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding);
+  row-gap: 0.8rem;
+}
+
+#makeOrder h3 {
+  font-weight: var(--destac);
+}
+
+#makeOrder h3 #contact {
+  text-align: center;
+}
+
+.formOrder {
+  border: var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  padding: 0.36rem;
+}
+
+.formOrder #formInfo {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-top: 1rem;
+}
+
+.form label {
+  font-weight: var(--important);
+}
+
+.form input {
+  padding: 0.28rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  background-color: var(--surface);
+  color: var(--important-text);
+}
+
+.form #mensageInput {
+  height: 6rem;
+}
+
+#contactSection {
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.contacts {
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 0.32rem;
+}
+
+#orderingTime {
+  padding: var(--padding);
+}
+
+.timming {
+  display: flex;
+  flex-direction: column;
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 0.32rem;
+}
+
+.timming h3 {
+  text-align: center;
+  font-weight: var(--destac);
+}
+
+.timmingDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}

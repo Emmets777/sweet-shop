@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/midias.css" />
+    <title>Sonhos de açucar</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <i class="fa-solid fa-cake-candles"></i>
+          <p>Sonhos de açucar</p>
+        </div>
+
+        <button id="orders" type="button">Faça seu pedido!</button>
+      </nav>
+    </header>
+
+    <main>
+      <div class="descWrapper">
+        <section class="descriptionShop">
+          <div class="deskWelcome">
+            <i class="fa-regular fa-star"></i>
+            <p id="welcome">Feito com amor e carinho</p>
+          </div>
+
+          <p>Delícias Artesanais que Encantam!</p>
+
+          <p>
+            Panetones irresistíveis, cones recheados crocantes e uma variedade
+            de doces feitos à mão. Cada produto é preparado com ingredientes
+            selecionados e muito carinho.
+          </p>
+
+          <div class="bntZone">
+            <button type="button" class="bntProduct">
+              <a href="#ourProducts">Ver produtos</a>
+            </button>
+          </div>
+        </section>
+        <img
+          src="./assets/product.jpg"
+          alt="image product"
+          class="imgProduct"
+        />
+      </div>
+
+      <section id="about">
+        <div class="aboutUs">
+          <p>Sobre nossa doceria</p>
+          <p>
+            Somos uma doceria caseira apaixonada por criar momentos doces e
+            especiais. Nossa missão é trazer alegria através de sabores únicos e
+            produtos feitos com dedicação.
+          </p>
+        </div>
+
+        <div class="aboutWrapper">
+          <div class="card">
+            <p>Feito com Amor</p>
+
+            <p>
+              Cada doce é preparado artesanalmente com ingredientes selecionados
+              e muito carinho.
+            </p>
+          </div>
+
+          <div class="card">
+            <p>Qualidade Premium</p>
+
+            <p>
+              Utilizamos apenas os melhores ingredientes para garantir sabor e
+              qualidade incomparáveis.
+            </p>
+          </div>
+
+          <div class="card">
+            <p>Sempre Fresquinhos</p>
+
+            <p>
+              Produção diária para garantir produtos sempre frescos e saborosos
+              para você.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ourProducts">
+        <h3>Nossos produtos</h3>
+
+        <p>
+          Descubra nossa seleção de delícias artesanais, feitas com carinho e os
+          melhores ingredientes.
+        </p>
+
+        <div class="cardWrapper">
+          <div class="cardProduct">
+            <img
+              src="./assets/panetone-ilustre.jpg"
+              alt="panetone"
+              class="productPic"
+            />
+
+            <div class="productInfo">
+              <p id="productName">Panetones Artesanais</p>
+              <p>
+                Panetones tradicionais e gourmet com frutas cristalizadas,
+                chocolate, doce de leite e muito mais.
+              </p>
+
+              <div class="flavor">
+                <p>Nossos sabores:</p>
+
+                <ul>
+                  <li>Tradicional</li>
+                  <li>Chocolate</li>
+                  <li>Doce de leite</li>
+                  <li>Frutas vermelhas</li>
+                </ul>
+              </div>
+            </div>
+            <button type="button" class="createOrder">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <a href="#">Fazer pedido</a>
+            </button>
+          </div>
+
+          <div class="cardProduct">
+            <img
+              src="./assets/cone-ilustre.jpg"
+              alt="panetone"
+              class="productPic"
+            />
+
+            <div class="productInfo">
+              <p id="productName">Cones Recheados</p>
+
+              <p>
+                Cones crocantes recheados com os mais deliciosos cremes. Uma
+                explosão de sabor em cada mordida!
+              </p>
+
+              <div class="flavor">
+                <p>Nossos sabores:</p>
+
+                <ul>
+                  <li>Doce de leite</li>
+                  <li>Brigadeiro</li>
+                  <li>Creme de Avelã</li>
+                  <li>Prestígio</li>
+                </ul>
+              </div>
+            </div>
+            <button type="button" class="createOrder">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <a href="#">Fazer pedido</a>
+            </button>
+          </div>
+
+          <div class="cardProduct">
+            <img
+              src="./assets/candyes-ilustre.jpg"
+              alt="dandyes"
+              class="productPic"
+            />
+
+            <div class="productInfo">
+              <p id="productName">Doces Variados</p>
+
+              <p>
+                Uma seleção especial de doces finos, brigadeiros gourmet,
+                trufas, beijinhos e muito mais para adoçar seu dia.
+              </p>
+
+              <div class="flavor">
+                <p>Nossos sabores:</p>
+
+                <ul>
+                  <li>Brigadeiros</li>
+                  <li>Trufas</li>
+                  <li>Beijinhos</li>
+                  <li>Cajuzinhos</li>
+                </ul>
+              </div>
+            </div>
+            <button type="button" class="createOrder">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <a href="#">Fazer pedido</a>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="important">
+        <section id="makeOrder">
+          <h3>Faça seu pedido</h3>
+
+          <p id="contact">
+            Entre em contato conosco para fazer seu pedido ou tirar dúvidas.
+            Estamos prontos para adoçar seu dia!
+          </p>
+
+          <div class="formOrder">
+            <p id="formInfo">Envie sua Mensagem</p>
+            <p>
+              Preencha o formulário abaixo e responderemos o mais breve
+              possível.
+            </p>
+
+            <form action="#" class="form">
+              <label for="custumerName">Nome:</label>
+              <input
+                type="text"
+                name="custumerName"
+                placeholder="Seu nome completo"
+              />
+
+              <label for="custumerEmail">Email:</label>
+              <input
+                type="email"
+                name="custumerEmail"
+                placeholder="Digite seu email"
+              />
+
+              <label for="custumerNumber">Telefone:</label>
+              <input
+                type="number"
+                name="custumerNumber"
+                placeholder="(xx) xxxxx-xxxx"
+              />
+
+              <label for="mensage">Mensagem:</label>
+              <input
+                type="text"
+                name="mensage"
+                placeholder="Descreva seu pedido ou duvida"
+                id="mensageInput"
+              />
+            </form>
+          </div>
+        </section>
+
+        <section id="contactSection">
+          <h3>Informações de Contato</h3>
+          <p>Entre em contato através dos nossos canais</p>
+
+          <div class="contacts">
+            <p>
+              <i class="fa-solid fa-phone"></i>
+              WhatsApp: (11) 98765-4321
+            </p>
+
+            <p>
+              <i class="fa-solid fa-envelope"></i>
+              Email: sonhosdeaçucar@gmail.com
+            </p>
+
+            <p>
+              <i class="fa-brands fa-instagram"></i>
+              Instagram: @sonhosdeaçucar
+            </p>
+
+            <p>
+              <i class="fa-solid fa-location-dot"></i>
+              Localização: atendemos via entrega
+            </p>
+          </div>
+        </section>
+
+        <section id="orderingTime">
+          <div class="timming">
+            <h3>Horario de atendimento</h3>
+
+            <div class="timmingDescription">
+              <p>Segunda a Sábado: 8h - 20h</p>
+              <p>Domingo: 9h - 18h</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

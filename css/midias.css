@@ -1,0 +1,183 @@
+/* ===========================================================
+   📌 768px — Tablets / Landscape Mobile
+   =========================================================== */
+@media (min-width: 768px) {
+
+  /* AUMENTO GLOBAL DE TEXTO */
+  html {
+    font-size: 17px;
+  }
+
+  header .navbar .logo p {
+    font-size: 1.1rem;
+  }
+
+  main .descWrapper .imgProduct {
+    height: 30rem;
+  }
+
+  /* Títulos e textos importantes */
+  #ourProducts h3,
+  #makeOrder h3,
+  .timming h3 {
+    font-size: 1.4rem;
+  }
+
+  .productInfo p,
+  .descriptionShop p,
+  .aboutUs p {
+    font-size: 1.05rem;
+  }
+
+  .aboutWrapper {
+    flex-direction: row;
+  }
+
+  .cardWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .cardProduct {
+    width: 20rem;
+    max-width: none;
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .timmingDescription {
+    flex-direction: row;
+  }
+}
+
+
+
+/* ============================
+      VIEWPORT: 1024px
+============================ */
+@media (min-width: 1024px) {
+
+  /* AUMENTO GLOBAL */
+  html {
+    font-size: 18px;
+  }
+
+  header .navbar .logo p {
+    font-size: 1.2rem;
+  }
+
+  main .descWrapper .imgProduct {
+    height: 35rem;
+  }
+
+  /* Títulos maiores */
+  #ourProducts h3,
+  #makeOrder h3,
+  .timming h3 {
+    font-size: 1.5rem;
+  }
+
+  .productInfo p,
+  .descriptionShop p,
+  .aboutUs p {
+    font-size: 1.1rem;
+  }
+
+  .aboutWrapper {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .cardWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .cardProduct {
+    width: 22rem;
+    max-width: none;
+  }
+
+  .contacts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 1rem;
+  }
+
+  .timmingDescription {
+    flex-direction: row;
+  }
+}
+
+
+
+/* ===========================================================
+   🖥️ 1440px — Desktop Grande / Telas Amplas
+   =========================================================== */
+@media (min-width: 1440px) {
+
+  /* AUMENTO GLOBAL */
+  html {
+    font-size: 19px;
+  }
+
+  header .navbar .logo p {
+    font-size: 1.4rem;
+  }
+
+  main .descWrapper .imgProduct {
+    height: 40rem;
+  }
+
+  /* Títulos fortes */
+  #ourProducts h3,
+  #makeOrder h3,
+  .timming h3 {
+    font-size: 1.65rem;
+  }
+
+  .productInfo p,
+  .descriptionShop p,
+  .aboutUs p {
+    font-size: 1.2rem;
+  }
+
+  .aboutWrapper {
+    flex-direction: row;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cardWrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .cardProduct {
+    width: 24rem;
+    max-width: none;
+  }
+
+  .contacts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+  }
+  
+  .timmingDescription {
+    flex-direction: row;
+  }
+}
