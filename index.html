@@ -20,7 +20,10 @@
           <p>Sonhos de açucar</p>
         </div>
 
-        <button id="orders" type="button">Faça seu pedido!</button>
+        <button id="orders" type="button">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Abrir o carrinho
+        </button>
       </nav>
     </header>
 
@@ -198,94 +201,21 @@
           </div>
         </div>
       </section>
-
-      <section id="important">
-        <section id="makeOrder">
-          <h3>Faça seu pedido</h3>
-
-          <p id="contact">
-            Entre em contato conosco para fazer seu pedido ou tirar dúvidas.
-            Estamos prontos para adoçar seu dia!
-          </p>
-
-          <div class="formOrder">
-            <p id="formInfo">Envie sua Mensagem</p>
-            <p>
-              Preencha o formulário abaixo e responderemos o mais breve
-              possível.
-            </p>
-
-            <form action="#" class="form">
-              <label for="custumerName">Nome:</label>
-              <input
-                type="text"
-                name="custumerName"
-                placeholder="Seu nome completo"
-              />
-
-              <label for="custumerEmail">Email:</label>
-              <input
-                type="email"
-                name="custumerEmail"
-                placeholder="Digite seu email"
-              />
-
-              <label for="custumerNumber">Telefone:</label>
-              <input
-                type="number"
-                name="custumerNumber"
-                placeholder="(xx) xxxxx-xxxx"
-              />
-
-              <label for="mensage">Mensagem:</label>
-              <input
-                type="text"
-                name="mensage"
-                placeholder="Descreva seu pedido ou duvida"
-                id="mensageInput"
-              />
-            </form>
-          </div>
-        </section>
-
-        <section id="contactSection">
-          <h3>Informações de Contato</h3>
-          <p>Entre em contato através dos nossos canais</p>
-
-          <div class="contacts">
-            <p>
-              <i class="fa-solid fa-phone"></i>
-              WhatsApp: (11) 98765-4321
-            </p>
-
-            <p>
-              <i class="fa-solid fa-envelope"></i>
-              Email: sonhosdeaçucar@gmail.com
-            </p>
-
-            <p>
-              <i class="fa-brands fa-instagram"></i>
-              Instagram: @sonhosdeaçucar
-            </p>
-
-            <p>
-              <i class="fa-solid fa-location-dot"></i>
-              Localização: atendemos via entrega
-            </p>
-          </div>
-        </section>
-
-        <section id="orderingTime">
-          <div class="timming">
-            <h3>Horario de atendimento</h3>
-
-            <div class="timmingDescription">
-              <p>Segunda a Sábado: 8h - 20h</p>
-              <p>Domingo: 9h - 18h</p>
-            </div>
-          </div>
-        </section>
-      </section>
     </main>
+
+    <div id="cartOverlay" class="overlay hidden">
+      <div class="cartSidebar">
+        <button id="closeCart" class="closeCartBtn">&times;</button>
+        <h2>Seu Carrinho</h2>
+
+        <ul id="cartItems"></ul>
+
+        <div class="cartActions">
+          <button id="sendOrder" class="sendOrderBtn">Enviar Pedido</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
