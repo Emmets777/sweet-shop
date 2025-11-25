@@ -10,18 +10,18 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/midias.css" />
-    <title>Sonhos de açucar</title>
+    <title>Sonhos de açúcar</title>
   </head>
   <body>
     <header>
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Menu principal">
         <div class="logo">
-          <i class="fa-solid fa-cake-candles"></i>
-          <p>Sonhos de açucar</p>
+          <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+          <p>Sonhos de Açúcar</p>
         </div>
 
-        <button id="orders" type="button">
-          <i class="fa-solid fa-cart-shopping"></i>
+        <button id="orders" type="button" aria-expanded="false">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
           Abrir o carrinho
         </button>
       </nav>
@@ -31,7 +31,7 @@
       <div class="descWrapper">
         <section class="descriptionShop">
           <div class="deskWelcome">
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star" aria-hidden="true"></i>
             <p id="welcome">Feito com amor e carinho</p>
           </div>
 
@@ -39,8 +39,7 @@
 
           <p>
             Panetones irresistíveis, cones recheados crocantes e uma variedade
-            de doces feitos à mão. Cada produto é preparado com ingredientes
-            selecionados e muito carinho.
+            de doces feitos à mão.
           </p>
 
           <div class="bntZone">
@@ -49,9 +48,10 @@
             </button>
           </div>
         </section>
+
         <img
           src="./assets/product.jpg"
-          alt="image product"
+          alt="Imagem ilustrativa dos produtos da doceria"
           class="imgProduct"
         />
       </div>
@@ -61,42 +61,29 @@
           <p>Sobre nossa doceria</p>
           <p>
             Somos uma doceria caseira apaixonada por criar momentos doces e
-            especiais. Nossa missão é trazer alegria através de sabores únicos e
-            produtos feitos com dedicação.
+            especiais.
           </p>
         </div>
 
         <div class="aboutWrapper">
           <div class="card">
             <p>Feito com Amor</p>
-
-            <p>
-              Cada doce é preparado artesanalmente com ingredientes selecionados
-              e muito carinho.
-            </p>
+            <p>Produção artesanal com ingredientes selecionados.</p>
           </div>
 
           <div class="card">
             <p>Qualidade Premium</p>
-
-            <p>
-              Utilizamos apenas os melhores ingredientes para garantir sabor e
-              qualidade incomparáveis.
-            </p>
+            <p>Utilizamos apenas ingredientes de alta qualidade.</p>
           </div>
 
           <div class="card">
             <p>Sempre Fresquinhos</p>
-
-            <p>
-              Produção diária para garantir produtos sempre frescos e saborosos
-              para você.
-            </p>
+            <p>Produção diária garantindo frescor e sabor.</p>
           </div>
         </div>
       </section>
 
-      <section id="ourProducts">
+      <section id="ourProducts" aria-label="Lista de produtos">
         <h3>Nossos produtos</h3>
 
         <p>
@@ -108,20 +95,17 @@
           <div class="cardProduct">
             <img
               src="./assets/panetone-ilustre.jpg"
-              alt="panetone"
+              alt="Panetone artesanal"
               class="productPic"
             />
 
             <div class="productInfo">
               <p id="productName">Panetones Artesanais</p>
-              <p>
-                Panetones tradicionais e gourmet com frutas cristalizadas,
-                chocolate, doce de leite e muito mais.
-              </p>
+
+              <p>Panetones tradicionais e gourmet com diversos sabores.</p>
 
               <div class="flavor">
                 <p>Nossos sabores:</p>
-
                 <ul>
                   <li>Tradicional</li>
                   <li>Chocolate</li>
@@ -130,8 +114,9 @@
                 </ul>
               </div>
             </div>
+
             <button type="button" class="createOrder">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               <a href="#">Fazer pedido</a>
             </button>
           </div>
@@ -139,21 +124,17 @@
           <div class="cardProduct">
             <img
               src="./assets/cone-ilustre.jpg"
-              alt="panetone"
+              alt="Cone recheado"
               class="productPic"
             />
 
             <div class="productInfo">
               <p id="productName">Cones Recheados</p>
 
-              <p>
-                Cones crocantes recheados com os mais deliciosos cremes. Uma
-                explosão de sabor em cada mordida!
-              </p>
+              <p>Cones crocantes recheados com cremes deliciosos.</p>
 
               <div class="flavor">
                 <p>Nossos sabores:</p>
-
                 <ul>
                   <li>Doce de leite</li>
                   <li>Brigadeiro</li>
@@ -162,8 +143,9 @@
                 </ul>
               </div>
             </div>
+
             <button type="button" class="createOrder">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               <a href="#">Fazer pedido</a>
             </button>
           </div>
@@ -171,21 +153,17 @@
           <div class="cardProduct">
             <img
               src="./assets/candyes-ilustre.jpg"
-              alt="dandyes"
+              alt="Doces variados"
               class="productPic"
             />
 
             <div class="productInfo">
               <p id="productName">Doces Variados</p>
 
-              <p>
-                Uma seleção especial de doces finos, brigadeiros gourmet,
-                trufas, beijinhos e muito mais para adoçar seu dia.
-              </p>
+              <p>Seleção de doces finos, brigadeiros gourmet e trufas.</p>
 
               <div class="flavor">
                 <p>Nossos sabores:</p>
-
                 <ul>
                   <li>Brigadeiros</li>
                   <li>Trufas</li>
@@ -194,8 +172,9 @@
                 </ul>
               </div>
             </div>
+
             <button type="button" class="createOrder">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               <a href="#">Fazer pedido</a>
             </button>
           </div>
@@ -203,7 +182,14 @@
       </section>
     </main>
 
-    <div id="cartOverlay" class="overlay hidden">
+    <div
+      id="cartOverlay"
+      class="overlay hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Carrinho de compras"
+    >
       <div class="cartSidebar">
         <button id="closeCart" class="closeCartBtn">&times;</button>
         <h2>Seu Carrinho</h2>

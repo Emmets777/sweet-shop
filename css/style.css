@@ -1,49 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;600;700&display=swap");
 
-/* 🎨 Paleta baseada em 60/30/10 — Doceria */
 :root {
-  /* ========= 60% - Base (tons claros / fundo principal) ========= */
   --bg: hsl(30, 100%, 98%);
   --surface: hsl(25, 70%, 94%);
   --border: 1px solid hsl(20, 25%, 85%);
   --padding: 1rem;
-
-  /* ========= 30% - Complemento ========= */
   --primary: hsl(345, 55%, 65%);
   --primary-hover: hsl(345, 60%, 58%);
   --accent: hsl(20, 45%, 50%);
   --accent-hover: hsl(20, 50%, 45%);
-
-  /* ========= 10% - Toque vibrante ========= */
   --highlight: hsl(340, 70%, 55%);
   --highlight-hover: hsl(340, 75%, 50%);
-
-  /* ========= Tipografia ========= */
   --important-text: hsl(20, 20%, 15%);
   --normal-text: hsl(20, 15%, 30%);
   --muted-text: hsl(20, 10%, 45%);
-
   --important: 700;
   --destac: 600;
   --mid: 400;
   --low: 300;
-
-  /* ========= Outros ========= */
   --shadow: 0 4px 10px hsla(20, 20%, 30%, 0.15);
   --radius: 0.75rem;
   --transition: all 0.3s ease;
 }
 
-/* ========= Reset ========= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Merriweather", "Inter", sans-serif;
+  
+}
+
+button:focus,
+select:focus,
+a:focus {
+  outline: 2px solid #f7a0a0; /* escolha uma cor que combine com seu layout */
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 html {
-  font-size: 16px; /* base para rem */
+  font-size: 16px;
   scroll-behavior: smooth;
 }
 
@@ -54,7 +51,6 @@ body {
   line-height: 1.5;
 }
 
-/* ========= Header ========= */
 header {
   width: 100%;
   background-color: var(--surface);
@@ -79,10 +75,9 @@ header {
 .logo p {
   font-weight: var(--destac);
   color: var(--important-text);
-  font-size: 0.8rem; /* leitura confortável em telas pequenas */
+  font-size: 0.8rem;
 }
 
-/* ========= Botão principal ========= */
 #orders {
   background-color: var(--primary);
   color: var(--important-text);
@@ -92,14 +87,20 @@ header {
   padding: 0.5rem 0.5rem;
   transition: var(--transition);
   cursor: pointer;
-  font-size: 0.9rem; /* tamanho ideal para mobile */
+  font-size: 0.9rem;
   line-height: 1;
+  position: relative;
 }
 
 #orders:hover {
   background-color: var(--primary-hover);
   transform: translateY(-1px);
   box-shadow: var(--shadow);
+}
+
+#orders:focus {
+  outline: 3px solid var(--highlight);
+  outline-offset: 3px;
 }
 
 .descWrapper {
@@ -147,6 +148,7 @@ header {
   width: 100%;
   height: 24rem;
   border-radius: var(--radius);
+  object-fit: cover;
 }
 
 .aboutUs {
@@ -191,6 +193,9 @@ header {
   flex-direction: column;
   justify-content: center;
   padding: var(--padding);
+  font-weight: var(--mid);
+  text-align: center;
+  row-gap: 4px;
 }
 
 #ourProducts h3 {
@@ -198,13 +203,6 @@ header {
   text-align: center;
 }
 
-#ourProducts {
-  font-weight: var(--mid);
-  text-align: center;
-  row-gap: 4px;
-}
-
-/* ======== WRAPPER ========= */
 .cardWrapper {
   width: 100%;
   display: flex;
@@ -214,7 +212,6 @@ header {
   align-items: stretch;
 }
 
-/* ======== CARD ========= */
 .cardProduct {
   display: flex;
   flex-direction: column;
@@ -223,18 +220,16 @@ header {
   border-radius: var(--radius);
   overflow: hidden;
   width: 100%;
-  max-width: 22rem;        /* controla o tamanho */
+  max-width: 22rem;
   box-shadow: var(--shadow);
 }
 
-/* ======== IMAGENS PADRONIZADAS ========= */
 .productPic {
   width: 100%;
-  height: 14rem;           /* todas as imagens ficam com a mesma altura */
-  object-fit: cover;       /* corta onde precisar sem distorcer */
+  height: 14rem;
+  object-fit: cover;
 }
 
-/* ======== TEXTOS ========= */
 .productInfo {
   padding: 1rem;
   flex-grow: 1;
@@ -246,7 +241,6 @@ header {
   margin-bottom: 0.5rem;
 }
 
-/* ======== SABORES ========= */
 .flavor p {
   font-weight: var(--destac);
 }
@@ -288,20 +282,12 @@ header {
   font-weight: var(--destac);
 }
 
-#makeOrder h3 #contact {
-  text-align: center;
-}
-
 .formOrder {
   border: var(--border);
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
   padding: 0.36rem;
-}
-
-.formOrder #formInfo {
-  text-align: center;
 }
 
 .form {
@@ -324,7 +310,14 @@ header {
   color: var(--important-text);
 }
 
-.form #mensageInput {
+.form input:focus,
+select:focus,
+button:focus {
+  outline: 3px solid var(--highlight);
+  outline-offset: 3px;
+}
+
+#mensageInput {
   height: 6rem;
 }
 
@@ -469,10 +462,6 @@ header {
   cursor: pointer;
 }
 
-#orders {
-  position: relative;
-}
-
 #ordersCounter {
   position: absolute;
   top: -6px;
@@ -486,4 +475,12 @@ header {
   align-items: center;
   justify-content: center;
   font-size: 12px;
+}
+ 
+button:focus,
+select:focus,
+a:focus {
+  outline: 2px solid #ff4444; /* escolha uma cor que combine com seu layout */
+  outline-offset: 3px;
+  border-radius: 6px;
 }
