@@ -28,13 +28,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Merriweather", "Inter", sans-serif;
-  
 }
 
 button:focus,
 select:focus,
 a:focus {
-  outline: 2px solid #f7a0a0; /* escolha uma cor que combine com seu layout */
+  outline: 2px solid #f7a0a0;
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -165,7 +164,7 @@ header {
 .aboutWrapper {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 2rem;
   padding: var(--padding) var(--padding);
   flex-direction: column;
@@ -206,9 +205,11 @@ header {
 .cardWrapper {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1rem 0;
+  justify-content: center;
   align-items: stretch;
 }
 
@@ -239,6 +240,13 @@ header {
   font-weight: var(--important);
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+}
+
+/* NOVO: preço exibido no card */
+.productPrice {
+  font-weight: var(--destac);
+  margin-bottom: 0.75rem;
+  color: var(--important-text);
 }
 
 .flavor p {
@@ -361,14 +369,14 @@ button:focus {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   justify-content: flex-end;
   align-items: stretch;
   z-index: 9999;
   opacity: 1;
   visibility: visible;
-  transition: opacity .3s ease, visibility .3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .hidden {
@@ -385,7 +393,7 @@ button:focus {
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
-  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
   gap: 18px;
 }
 
@@ -445,7 +453,8 @@ button:focus {
   border-radius: 4px;
 }
 
-.flavorSelect {
+.flavorSelect,
+.quantitySelect {
   width: 100%;
   padding: 8px;
   border-radius: 6px;
@@ -476,11 +485,12 @@ button:focus {
   justify-content: center;
   font-size: 12px;
 }
- 
+
+/* Ajuste duplicado removido e substituído por cor coerente */
 button:focus,
 select:focus,
 a:focus {
-  outline: 2px solid #ff4444; /* escolha uma cor que combine com seu layout */
+  outline: 2px solid var(--highlight);
   outline-offset: 3px;
   border-radius: 6px;
 }

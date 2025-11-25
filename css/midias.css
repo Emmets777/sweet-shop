@@ -1,41 +1,48 @@
 /* ===========================================================
-   📌 768px — Tablets / Landscape Mobile
+   768px — Tablets / Landscape
    =========================================================== */
 @media (min-width: 768px) {
 
-  /* AUMENTO GLOBAL DE TEXTO */
   html {
     font-size: 17px;
   }
 
   header .navbar .logo p {
     font-size: 1.1rem;
+    font-weight: var(--destac);
   }
 
   main .descWrapper .imgProduct {
     height: 30rem;
+    object-fit: cover;
+    border-radius: var(--radius);
   }
 
-  /* Títulos e textos importantes */
   #ourProducts h3,
   #makeOrder h3,
   .timming h3 {
     font-size: 1.4rem;
+    font-weight: var(--important);
+    color: var(--important-text);
   }
 
   .productInfo p,
   .descriptionShop p,
   .aboutUs p {
     font-size: 1.05rem;
+    color: var(--normal-text);
   }
 
   .aboutWrapper {
     flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding: var(--padding);
   }
 
   .cardWrapper {
-    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
   }
@@ -43,6 +50,8 @@
   .cardProduct {
     width: 20rem;
     max-width: none;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
   }
 
   .contacts {
@@ -50,21 +59,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 1rem;
   }
 
   .timmingDescription {
     flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
   }
 }
 
 
 
-/* ============================
-      VIEWPORT: 1024px
-============================ */
+/* ===========================================================
+   1024px — Notebooks / Desktop Médio
+   =========================================================== */
 @media (min-width: 1024px) {
 
-  /* AUMENTO GLOBAL */
   html {
     font-size: 18px;
   }
@@ -77,11 +88,11 @@
     height: 35rem;
   }
 
-  /* Títulos maiores */
   #ourProducts h3,
   #makeOrder h3,
   .timming h3 {
     font-size: 1.5rem;
+    font-weight: var(--important);
   }
 
   .productInfo p,
@@ -93,53 +104,53 @@
   .aboutWrapper {
     flex-direction: row;
     gap: 3rem;
+    padding: var(--padding);
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .cardWrapper {
-    display: flex;
+    gap: 3rem;
     flex-direction: row;
     justify-content: center;
-    gap: 3rem;
+    flex-wrap: wrap;
   }
 
   .cardProduct {
     width: 22rem;
-    max-width: none;
   }
 
   .contacts {
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    row-gap: 1rem;
+    gap: 1rem;
   }
 
   .timmingDescription {
     flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2rem;
   }
 }
 
 
 
 /* ===========================================================
-   🖥️ 1440px — Desktop Grande / Telas Amplas
+   1440px — Desktop Grande / Telas Amplas
    =========================================================== */
 @media (min-width: 1440px) {
 
-  /* AUMENTO GLOBAL */
   html {
     font-size: 19px;
   }
 
   header .navbar .logo p {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   main .descWrapper .imgProduct {
     height: 40rem;
   }
 
-  /* Títulos fortes */
   #ourProducts h3,
   #makeOrder h3,
   .timming h3 {
@@ -160,24 +171,25 @@
   }
 
   .cardWrapper {
+    gap: 4rem;
     flex-direction: row;
     justify-content: center;
-    gap: 4rem;
+    flex-wrap: wrap;
   }
 
   .cardProduct {
     width: 24rem;
-    max-width: none;
   }
 
   .contacts {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 3rem;
   }
-  
+
   .timmingDescription {
     flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
   }
 }

@@ -6,51 +6,49 @@ const ordersBtn = document.getElementById("orders");
 const addButtons = document.querySelectorAll(".createOrder");
 
 let cart = [];
-let flavorsByProduct = [];
-let flavorsLoaded = false;
+let products = [];
+let loaded = false;
 
 fetch("./flavors.json")
   .then((r) => r.json())
   .then((data) => {
-    flavorsByProduct = Array.isArray(data.produtos) ? data.produtos : [];
-    flavorsLoaded = true;
+    products = Array.isArray(data.produtos) ? data.produtos : [];
+    loaded = true;
   });
 
+/* Contador */
 if (!document.getElementById("ordersCounter")) {
   const counter = document.createElement("span");
   counter.id = "ordersCounter";
   counter.textContent = "0";
-  counter.setAttribute("aria-live", "polite");
-  counter.setAttribute("role", "status");
   ordersBtn.appendChild(counter);
 }
 
+/* Adicionar ao carrinho */
 addButtons.forEach((btn) => {
-  btn.setAttribute("aria-label", "Adicionar produto ao carrinho");
-
   btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (!flavorsLoaded) {
-      alert("Carregando sabores. Aguarde...");
+    if (!loaded) {
+      alert("Carregando dados. Aguarde...");
       return;
     }
 
     const card = btn.closest(".cardProduct");
-    const name = card.querySelector("#productName").textContent.trim();
+    const id = card.getAttribute("data-product-id");
+    const name = card.querySelector(".productName").textContent.trim();
 
-    const productId = name.toLowerCase().includes("panetone")
-      ? "panetone"
-      : name.toLowerCase().includes("cone")
-      ? "cone"
-      : "doces";
+    const productData = products.find((p) => p.id === id);
+
+    const isDonuts = id === "donuts";
 
     cart.push({
       id: Date.now(),
-      productId,
+      productId: id,
       name,
       quantity: 1,
-      flavor: ""
+      flavor: "",
+      selectedQty: isDonuts ? "4" : null
     });
 
     updateCounter();
@@ -58,150 +56,151 @@ addButtons.forEach((btn) => {
   });
 });
 
-let lastFocusedElement = null;
-
-function openCart() {
-  lastFocusedElement = document.activeElement;
-  overlay.classList.remove("hidden");
-  overlay.setAttribute("aria-hidden", "false");
-  ordersBtn.setAttribute("aria-expanded", "true");
-  closeCart.focus();
-  trapFocus(overlay);
-}
-
-function closeCartModal() {
-  overlay.classList.add("hidden");
-  overlay.setAttribute("aria-hidden", "true");
-  ordersBtn.setAttribute("aria-expanded", "false");
-  if (lastFocusedElement) lastFocusedElement.focus();
-}
-
-ordersBtn.addEventListener("click", openCart);
-closeCart.addEventListener("click", closeCartModal);
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
-    closeCartModal();
-  }
-});
-
-function trapFocus(container) {
-  const focusable = container.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  );
-
-  const firstEl = focusable[0];
-  const lastEl = focusable[focusable.length - 1];
-
-  container.addEventListener("keydown", function (e) {
-    if (e.key !== "Tab") return;
-
-    if (e.shiftKey) {
-      if (document.activeElement === firstEl) {
-        e.preventDefault();
-        lastEl.focus();
-      }
-    } else {
-      if (document.activeElement === lastEl) {
-        e.preventDefault();
-        firstEl.focus();
-      }
-    }
-  });
-}
-
 function updateCounter() {
-  const c = document.getElementById("ordersCounter");
-  c.textContent = cart.length;
+  document.getElementById("ordersCounter").textContent = cart.length;
 }
 
+/* Render do carrinho */
 function renderCart() {
   cartItemsList.innerHTML = "";
-  cartItemsList.setAttribute("aria-live", "polite");
 
   cart.forEach((item) => {
+    const productData = products.find((p) => p.id === item.productId);
+
     const li = document.createElement("li");
-    li.setAttribute("role", "group");
-    li.setAttribute("aria-label", item.name);
 
     const title = document.createElement("p");
     title.textContent = item.name;
 
+    li.appendChild(title);
+
+    /* Quantidade geral */
     const quantityBox = document.createElement("div");
     quantityBox.className = "quantityControl";
 
-    const minusBtn = document.createElement("button");
-    minusBtn.textContent = "-";
-    minusBtn.setAttribute("aria-label", "Diminuir quantidade");
-    minusBtn.onclick = () => {
+    const minus = document.createElement("button");
+    minus.textContent = "-";
+    minus.onclick = () => {
       if (item.quantity > 1) item.quantity--;
       renderCart();
     };
 
-    const qty = document.createElement("span");
-    qty.textContent = item.quantity;
-    qty.setAttribute("aria-label", `Quantidade atual: ${item.quantity}`);
+    const qtyTxt = document.createElement("span");
+    qtyTxt.textContent = item.quantity;
 
-    const plusBtn = document.createElement("button");
-    plusBtn.textContent = "+";
-    plusBtn.setAttribute("aria-label", "Aumentar quantidade");
-    plusBtn.onclick = () => {
+    const plus = document.createElement("button");
+    plus.textContent = "+";
+    plus.onclick = () => {
       item.quantity++;
       renderCart();
     };
 
-    quantityBox.appendChild(minusBtn);
-    quantityBox.appendChild(qty);
-    quantityBox.appendChild(plusBtn);
+    quantityBox.appendChild(minus);
+    quantityBox.appendChild(qtyTxt);
+    quantityBox.appendChild(plus);
+    li.appendChild(quantityBox);
 
-    const flavorBox = document.createElement("select");
-    flavorBox.className = "flavorSelect";
-    flavorBox.setAttribute("aria-label", "Selecionar sabor");
+    /* Somente donuts: seletor de quantidades especiais */
+    if (item.productId === "donuts") {
+      const qtySelect = document.createElement("select");
+      qtySelect.className = "qtySelectDonuts";
 
-    flavorBox.innerHTML = '<option value="">Selecione o sabor</option>';
+      Object.entries(productData.precos_por_quantidade).forEach(([q, v]) => {
+        const opt = document.createElement("option");
+        opt.value = q;
+        opt.textContent = `${q} unidades (R$ ${v})`;
+        if (item.selectedQty === q) opt.selected = true;
+        qtySelect.appendChild(opt);
+      });
 
-    const productFlavors =
-      flavorsByProduct.find((p) => p.id === item.productId)?.sabores || [];
+      qtySelect.onchange = (ev) => {
+        item.selectedQty = ev.target.value;
+        renderCart();
+      };
 
-    productFlavors.forEach((f) => {
-      const opt = document.createElement("option");
-      opt.value = f;
-      opt.textContent = f;
-      if (item.flavor === f) opt.selected = true;
-      flavorBox.appendChild(opt);
-    });
+      li.appendChild(qtySelect);
+    }
 
-    flavorBox.onchange = (e) => {
-      item.flavor = e.target.value;
-    };
+    /* Sabores (se houver) */
+    if (productData.sabores) {
+      const flavorBox = document.createElement("select");
+      flavorBox.className = "flavorSelect";
 
+      flavorBox.innerHTML = `<option value="">Selecione o sabor</option>`;
+
+      productData.sabores.forEach((f) => {
+        const opt = document.createElement("option");
+        opt.value = f;
+        opt.textContent = f;
+        if (item.flavor === f) opt.selected = true;
+        flavorBox.appendChild(opt);
+      });
+
+      flavorBox.onchange = (ev) => {
+        item.flavor = ev.target.value;
+      };
+
+      li.appendChild(flavorBox);
+    }
+
+    /* Cálculo do preço */
+    let unitPrice = 0;
+
+    if (item.productId === "donuts") {
+      unitPrice = productData.precos_por_quantidade[item.selectedQty];
+    } else {
+      unitPrice = productData.preco;
+    }
+
+    const priceEl = document.createElement("p");
+    priceEl.textContent = `Preço: R$ ${(unitPrice * item.quantity).toFixed(2)}`;
+    li.appendChild(priceEl);
+
+    /* Remover */
     const removeBtn = document.createElement("button");
     removeBtn.className = "removeItemBtn";
     removeBtn.textContent = "Remover";
-    removeBtn.setAttribute("aria-label", "Remover item");
     removeBtn.onclick = () => {
       cart = cart.filter((c) => c.id !== item.id);
       updateCounter();
       renderCart();
     };
 
-    li.appendChild(title);
-    li.appendChild(quantityBox);
-    li.appendChild(flavorBox);
     li.appendChild(removeBtn);
 
     cartItemsList.appendChild(li);
   });
 }
 
+/* Abrir/fechar carrinho */
+ordersBtn.addEventListener("click", () => overlay.classList.remove("hidden"));
+closeCart.addEventListener("click", () => overlay.classList.add("hidden"));
+
+/* Enviar pedido */
 sendOrder.addEventListener("click", () => {
   if (cart.length === 0) return;
 
   let text = "Pedido:%0A";
+
   cart.forEach((item) => {
-    text += `• ${item.name} | Qtd: ${item.quantity} | Sabor: ${
-      item.flavor || "Não selecionado"
-    }%0A`;
+    const productData = products.find((p) => p.id === item.productId);
+
+    let unitPrice =
+      item.productId === "donuts"
+        ? productData.precos_por_quantidade[item.selectedQty]
+        : productData.preco;
+
+    text += `• ${item.name} | Quant.: ${item.quantity} | Valor: R$ ${(
+      unitPrice * item.quantity
+    ).toFixed(2)}%0A`;
+
+    if (item.flavor) {
+      text += `  Sabor: ${item.flavor}%0A`;
+    }
+
+    if (item.productId === "donuts") {
+      text += `  Quantidade escolhida: ${item.selectedQty} unidades%0A`;
+    }
   });
 
   const url = `https://wa.me/5599999999999?text=${text}`;

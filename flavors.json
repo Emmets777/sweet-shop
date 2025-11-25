@@ -2,33 +2,57 @@
   "produtos": [
     {
       "id": "panetone",
-      "nome": "Panetones Artesanais",
+      "nome": "Panetones Recheados",
+      "preco": 85,
       "sabores": [
-        "Tradicional",
-        "Chocolate",
+        "Briganache",
+        "Prestigio",
         "Doce de leite",
-        "Frutas vermelhas"
+        "Brigadeiro",
+        "Mousse de Morango",
+        "Mousse de Maracujá",
+        "Kinder Bueno",
+        "Oreo",
+        "Ninho com Nutella"
       ]
     },
     {
       "id": "cone",
       "nome": "Cones Recheados",
+      "preco": 10,
+      "sabores": ["Oreo", "Brigadeiro", "Sensação", "Coco", "Kinder Bueno"]
+    },
+    {
+      "id": "bolos",
+      "nome": "Bolos Variados",
+      "preco": 18,
       "sabores": [
-        "Doce de leite",
+        "Prestigio",
         "Brigadeiro",
-        "Creme de Avelã",
-        "Prestígio"
+        "Morango c/ chantilly",
+        "Oreo",
+        "Sensação",
+        "Abacaxi c/ coco",
+        "Kinder Bueno",
+        "Red Velvet",
+        "Ninho com Nutella"
       ]
     },
     {
-      "id": "doces",
-      "nome": "Doces Variados",
-      "sabores": [
-        "Brigadeiro",
-        "Trufas",
-        "Beijinhos",
-        "Cajuzinhos"
-      ]
+      "id": "churros",
+      "nome": "Churros no pote",
+      "preco": 15,
+      "sabores": ["Brigadeiro", "Doce de leite"]
+    },
+    {
+      "id": "donuts",
+      "nome": "Mini cake donuts",
+      "precos_por_quantidade": {
+        "4": 10,
+        "6": 12,
+        "9": 16,
+        "12": 24
+      }
     }
   ]
 }
