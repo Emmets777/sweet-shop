@@ -1,0 +1,34 @@
+{
+  "produtos": [
+    {
+      "id": "panetone",
+      "nome": "Panetones Artesanais",
+      "sabores": [
+        "Tradicional",
+        "Chocolate",
+        "Doce de leite",
+        "Frutas vermelhas"
+      ]
+    },
+    {
+      "id": "cone",
+      "nome": "Cones Recheados",
+      "sabores": [
+        "Doce de leite",
+        "Brigadeiro",
+        "Creme de Avelã",
+        "Prestígio"
+      ]
+    },
+    {
+      "id": "doces",
+      "nome": "Doces Variados",
+      "sabores": [
+        "Brigadeiro",
+        "Trufas",
+        "Beijinhos",
+        "Cajuzinhos"
+      ]
+    }
+  ]
+}
