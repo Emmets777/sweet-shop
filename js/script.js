@@ -100,7 +100,7 @@ function renderCart() {
     quantityBox.appendChild(plus);
     li.appendChild(quantityBox);
 
-    /* Somente donuts: seletor de quantidades especiais */
+    /* Somente donuts */
     if (item.productId === "donuts") {
       const qtySelect = document.createElement("select");
       qtySelect.className = "qtySelectDonuts";
@@ -121,7 +121,7 @@ function renderCart() {
       li.appendChild(qtySelect);
     }
 
-    /* Sabores (se houver) */
+    /* Sabores */
     if (productData.sabores) {
       const flavorBox = document.createElement("select");
       flavorBox.className = "flavorSelect";
@@ -180,7 +180,7 @@ closeCart.addEventListener("click", () => overlay.classList.add("hidden"));
 sendOrder.addEventListener("click", () => {
   if (cart.length === 0) return;
 
-  let text = "Pedido:%0A";
+  let text = "Pedidos:%0A%0A";
 
   cart.forEach((item) => {
     const productData = products.find((p) => p.id === item.productId);
@@ -190,19 +190,27 @@ sendOrder.addEventListener("click", () => {
         ? productData.precos_por_quantidade[item.selectedQty]
         : productData.preco;
 
-    text += `• ${item.name} | Quant.: ${item.quantity} | Valor: R$ ${(
-      unitPrice * item.quantity
-    ).toFixed(2)}%0A`;
+    // Formatação vertical
+    text += `Nome do pedido: ${item.name}%0A`;
 
     if (item.flavor) {
-      text += `  Sabor: ${item.flavor}%0A`;
+      text += `Sabor: ${item.flavor}%0A`;
+    } else {
+      text += `Sabor: Não informado%0A`;
     }
+
+    text += `Quantidade: ${item.quantity}%0A`;
 
     if (item.productId === "donuts") {
-      text += `  Quantidade escolhida: ${item.selectedQty} unidades%0A`;
+      text += `Quantidade escolhida (kit): ${item.selectedQty}%0A`;
     }
+
+    const total = (unitPrice * item.quantity).toFixed(2);
+    text += `Preço: R$ ${total}%0A`;
+
+    text += `%0A`; // Linha em branco entre pedidos
   });
 
-  const url = `https://wa.me/5599999999999?text=${text}`;
+  const url = `https://wa.me/5511960945833?text=${text}`;
   window.open(url, "_blank", "noopener");
 });
